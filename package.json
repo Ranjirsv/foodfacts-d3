@@ -1,0 +1,21 @@
+{
+  "name": "base-boilerplate",
+  "version": "1.0.0",
+  "description": "Base boilerplate for JS projects as assignments",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab-dev.stackroute.in:2222/assignments/base-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "StackRoute",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {}
+}
