@@ -1,62 +1,39 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
-
     <title>ui test case</title>
-
+    <!--d3 file is added-->
     <script src="http://d3js.org/d3.v3.js"></script>
-
+    <!--mocha and chai cdn link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.4.1/mocha.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
-
     <script>
-
-    if (typeof initMochaPhantomJS === 'function') {
-
-        initMochaPhantomJS();
-
-    }
-
-    mocha.ui('bdd');
-
-    mocha.reporter('html');
-
-    expect = chai.expect;
-
+        if (typeof initMochaPhantomJS === 'function') {
+            initMochaPhantomJS();
+        }
+        mocha.ui('bdd');
+        mocha.reporter('html');
+        expect = chai.expect;
     </script>
-<meta charset="utf-8">
+    <meta charset="utf-8">
 </head>
 
 <body>
-
     <div id="mocha"></div>
-
     <div id="line"></div>
-
     <div id="bar"></div>
-
 </body>
-
+<!--d3 bar chart javascript file is added-->
 <script src="../js/Bar_Chart.js"></script>
-
-
+<!--ui test file for bar test-->
 <script src="./barTest.js"></script>
-
 <script>
-
-if (window.mochaPhantomJS) {
-
-    mochaPhantomJS.run();
-
-} else {
-
-    mocha.run();
-
-}
-
+    if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+    } else {
+        mocha.run();
+    }
 </script>
 
 </html>

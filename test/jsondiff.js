@@ -1,4 +1,5 @@
 /*eslint-env node */
+/*file to compare two json objects*/
 module.exports = (function() {
     return {
         compareJSONStrings: function(expectedJSONStr, actualJSONStr) {
