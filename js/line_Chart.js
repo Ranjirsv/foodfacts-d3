@@ -50,7 +50,7 @@ let svg = d3.select('body')
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 //output json is append with d3
-d3.json('../output/output2.json', function(error, data) {
+d3.json('../output/sugarsalt.json', function(error, data) {
     data.forEach(function(d) {
         d.Country = d.Country;
         d.Fat_100g = +d.Fat_100g;

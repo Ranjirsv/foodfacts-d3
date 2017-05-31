@@ -116,7 +116,7 @@ read.on('close', function() {
     });
 
     /*output json file is written in to output2.json*/
-    fs.writeFile('../output/output2.json', JSON.stringify(arr));
+    fs.writeFile('../output/fatcarbs.json', JSON.stringify(arr));
 });
 /*exports the data for testing purpose*/
 module.exports = {

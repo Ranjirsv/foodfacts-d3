@@ -3,11 +3,11 @@
 let chai = require('chai');
 let expect = chai.expect;
 /*json output of salt and sugar consumption */
-let output = require('../output/output.json');
+let output = require('../output/sugarsalt.json');
 /* javascript file of salt and sugar consumption, */
 let part1 = require('../part1.js');
 /*json output file of fat, protein, carbohydrate*/
-let output2 = require('../output/output2.json');
+let output2 = require('../output/fatcarbs.json');
 /*javascript file of fat, protein, carbohydrate*/
 let part2 = require('../part2.js');
 /*expected json files */

@@ -30,7 +30,7 @@ let svg = d3.select("body").append('svg')
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 //output json is append with d3
-d3.json('../output/output.json', function(error, data) {
+d3.json('../output/fatcarbs.json', function(error, data) {
     if (error) {
         throw error;
     }
