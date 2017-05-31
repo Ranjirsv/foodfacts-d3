@@ -66,9 +66,9 @@ read.on('close', function() {
     }
     /*output json is written in output.json file */
     fs.writeFile('../output/sugarsalt.json', JSON.stringify(part1));
-
-});
 console.log(part1);
+});
+
 /*exports for testing purpose */
 module.exports = {
     countries, saltContent, sugarContent
