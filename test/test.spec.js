@@ -5,11 +5,11 @@ let expect = chai.expect;
 /*json output of salt and sugar consumption */
 let output = require('../output/sugarsalt.json');
 /* javascript file of salt and sugar consumption, */
-let part1 = require('../part1.js');
+let index = require('../index.js');
 /*json output file of fat, protein, carbohydrate*/
 let output2 = require('../output/fatcarbs.json');
-/*javascript file of fat, protein, carbohydrate*/
-let part2 = require('../part2.js');
+
+
 /*expected json files */
 let expectedJSON = require('./expectedJSON.json');
 let expectedJSON2 = require('./expectedJSON2.json');
@@ -31,15 +31,15 @@ describe('check the output json1', function() {
         done();
     });
     it('the input should be an array', function(done) {
-        expect(Array.isArray(part1.countries)).to.deep.equal(true);
+        expect(Array.isArray(index.countries)).to.deep.equal(true);
         done();
     });
     it('check the saltContent array size', function(done) {
-        expect(part1.saltContent.length).to.deep.equal(9);
+        expect(index.saltContent.length).to.deep.equal(9);
         done();
     });
     it('check the sugarContent array size', function(done) {
-        expect(part1.sugarContent.length).to.deep.equal(9);
+        expect(index.sugarContent.length).to.deep.equal(9);
         done();
     });
 });
@@ -59,20 +59,20 @@ describe('check the output json2', function() {
         done();
     });
     it('the input should be an array', function(done) {
-        expect(Array.isArray(part2.countries)).to.deep.equal(true);
+        expect(Array.isArray(index.countries1)).to.deep.equal(true);
         done();
     });
     it('size of fatContent array', function(done) {
-        expect(part2.fatContent.length).to.deep.equal(15);
+        expect(index.fatContent1.length).to.deep.equal(15);
         done();
     });
     it('size of proteinContent array', function(done) {
-        expect(part2.proteinContent.length).to.deep.equal(15);
+        expect(index.proteinContent1.length).to.deep.equal(15);
         done();
     });
 
     it('size of carboContent array', function(done) {
-        expect(part2.carboContent.length).to.deep.equal(15);
+        expect(index.carboContent1.length).to.deep.equal(15);
         done();
     });
 
