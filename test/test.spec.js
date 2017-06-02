@@ -75,5 +75,4 @@ describe('check the output json2', function() {
         expect(index.carboContent1.length).to.deep.equal(15);
         done();
     });
-
 });

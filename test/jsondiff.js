@@ -8,8 +8,8 @@ module.exports = (function() {
             let compareObjects;
             if (!expectedJSON || !actualJSON) {
                 return;
-            }
-            return compareObjects (JSON.parse(expectedJSONStr), JSON.parse(actualJSONStr));
+            } 
+            return compareObjects(JSON.parse(expectedJSONStr), JSON.parse(actualJSONStr));
         },
         compareJSONObjects: function (expectedJSON, actualJSON) {
             if (!expectedJSON || !actualJSON) {
@@ -33,16 +33,16 @@ module.exports = (function() {
             function toDataMap (data) {
                 return data.map(toObjValueHash);
             }
-            let expectedDataSet = new Set (toDataMap(expectedJSON));
+            let expectedDataSet = new Set(toDataMap(expectedJSON));
             let actualJSONObjs = actualJSON;
             let diffs = [];
             let matched = [];
             actualJSONObjs.forEach(function (obj) {
-                let actual = toObjValueHash (obj);
-                if (expectedDataSet.has (actual)) {
-                    matched.push (obj);
+                let actual = toObjValueHash(obj);
+                if (expectedDataSet.has(actual)) {
+                    matched.push(obj);
                 } else {
-                    diffs.push (obj);
+                    diffs.push(obj);
                 }
             });
             if (diffs.length > 0) {
@@ -50,12 +50,8 @@ module.exports = (function() {
                     diffs: diffs.length,
                     diffObjs: diffs
                 };
-            } else {
-                return {
-                    diffs : diffs.length,
-                    diffObjs : []
-                };
             }
+            return { diffs : diffs.length,diffObjs : [] };
         }
     };
 })();

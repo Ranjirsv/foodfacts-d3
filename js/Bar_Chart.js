@@ -24,7 +24,7 @@ let yAxis = d3.svg.axis()
     .orient('left')
     .tickFormat(d3.format('.2s'));
 // svg is append to the html page
-let svg = d3.select("body").append('svg')
+let svg = d3.select('body').append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
     .append('g')
@@ -43,7 +43,7 @@ d3.json('../output/sugarsalt.json', function(error, data) {
             return {
                 name: name,
                 y0: y0,
-                y1: y0 += +d[name]
+                y1: y0 +=d[name]
             };
         });
         d.total = d.ages[d.ages.length - 1].y1;

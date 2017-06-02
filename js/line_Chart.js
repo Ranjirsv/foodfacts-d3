@@ -49,7 +49,7 @@ let svg = d3.select('body')
     .attr('height', height + margin.top + margin.bottom)
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-//output json is append with d3
+// output json is append with d3
 d3.json('../output/fatcarbs.json', function(error, data) {
     data.forEach(function(d) {
         d.Country = d.Country;
