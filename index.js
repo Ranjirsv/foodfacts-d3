@@ -1,5 +1,5 @@
-/*eslint-env node */
-/*function to find new index in array */
+/* eslint-env node */
+/* function to find new index in array */
 let indexFind = function(lineIndex, countries) {
     this.countries = countries;
     let index = -1;
@@ -12,19 +12,19 @@ let indexFind = function(lineIndex, countries) {
     }
     return index;
 };
-/*file stream module is added*/
+/* file stream module is added*/
 let fs = require('fs');
 const readline = require('readline');
 let row;
 let read;
-/*csv file is read using interface*/
+/* csv file is read using interface*/
 let inputStream = fs.createReadStream('data/FoodFacts.csv');
-console.log("read");
+
 read = require('readline').createInterface({
     input: inputStream,
     terminal: false
 });
-/*countries array */
+/* countries array */
 let countries = ['Netherlands', 'Canada', 'United Kingdom', 'United States',
     'Australia', 'France', 'Germany', 'Spain', 'South Africa'
 ];
@@ -36,7 +36,7 @@ let sugar_index = 0;
 let saltContent = new Array(9).fill(0);
 let sugarContent = new Array(9).fill(0);
 let part1 = [];
-/*data is splitted and stored in row array */
+/* data is splitted and stored in row array */
 read.on('line', function(data) {
     row = data.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
     /* heading is separated */
@@ -54,7 +54,7 @@ read.on('line', function(data) {
     }
     flag = false;
 });
-/*countries, salt and sugar datas are added in part1 array */
+/* countries, salt and sugar datas are added in part1 array */
 read.on('close', function() {
 
     for (let i = 0; i < countries.length; i = i + 1) {
@@ -64,19 +64,17 @@ read.on('close', function() {
             Sugar: sugarContent[i]
         });
     }
-    /*output json is written in output.json file */
+    /* output json is written in output.json file */
     fs.writeFile('output/sugarsalt.json', JSON.stringify(part1));
-console.log(part1);
+
 });
 
-/*exports for testing purpose */
+/* exports for testing purpose */
 
 
 
-
-/*eslint-env node */
-/*function to find new index in array */
-let indexFind1 = function(lineIndex, countries) {
+/* function to find new index in array */
+let indexFind1 = function (lineIndex, countries) {
     this.countries = countries;
     let index = -1;
     if (lineIndex) {
@@ -88,17 +86,17 @@ let indexFind1 = function(lineIndex, countries) {
     }
     return index;
 };
-/*file stream module is added */
-let fs1 = require('fs');
+/* file stream module is added */
+let fs1 = require ('fs');
 const readline1 = require('readline');
 let row1;
-/*csv file read using interface*/
+/* csv file read using interface*/
 let inputStream1 = fs1.createReadStream('data/FoodFacts.csv');
 let read1 = require('readline').createInterface({
     input: inputStream1,
     terminal: false
 });
-/*countries array */
+/* countries array */
 let countries1 = ['United Kingdom', 'Denmark', 'Sweden', 'Norway', 'France', 'Belgium', 'Germany', 'Switzerland', 'Netherlands', 'Portugal', 'Greece', 'Italy', 'Spain', 'Croatia', 'Albania'];
 
 let flag1 = true;
@@ -110,9 +108,9 @@ let fatContent1 = new Array(15).fill(0);
 let proteinContent1 = new Array(15).fill(0);
 let carboContent1 = new Array(15).fill(0);
 let part2 = [];
-read1.on('line', function(data) {
+read1.on ('line', function(data) {
     row1 = data.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-    /*heading is separated in this condition*/
+    /* heading is separated in this condition */
     if (flag1) {
         country_index1 = row1.indexOf('countries_en');
         carbo_index1 = row1.indexOf('carbohydrates_100g');
@@ -120,7 +118,7 @@ read1.on('line', function(data) {
         protein_index1 = row1.indexOf('proteins_100g');
 
     }
-    /*datas are added in new index*/
+    /* datas are added in new index */
     if (country_index1 !== -1 || fat_index1 !== -1 || protein_index1 !== -1 || carbo_index1 !== -1) {
         let newIndex1 = indexFind1(row1[country_index1], countries1);
         fatContent1[newIndex1] = fatContent1[newIndex1] + Number(row1[fat_index1]);
@@ -140,8 +138,8 @@ let fatof_South = 0;
 let proteinof_South = 0;
 let carbo_South = 0;
 /*countries, fat, protein and carbohydrate are added in part2 array */
-read1.on('close', function() {
-    console.log('close method enter');
+read1.on ('close', function() {
+  
     for (let i = 0; i < countries1.length; i = i + 1) {
         part2.push({
             Country: countries1[i],
@@ -152,8 +150,8 @@ read1.on('close', function() {
         });
 
     }
-    /*data is again arranged as three regions*/
-    part2.map(function(key) {
+    /* data is again arranged as three regions */
+    part2.map (function(key) {
         if (key.Country === 'United Kingdom' || key.Country === 'Denmark' || key.Country === 'Sweden' || key.Country === 'Norway') {
             fatof_North = fatof_North + Number(key.Fat);
             proteinof_North = proteinof_North + Number(key.Protein);
@@ -171,20 +169,20 @@ read1.on('close', function() {
 
         }
     });
-    /*array arr is pushed with three objects*/
-    arr.push({
+    /* array arr is pushed with three objects */
+    arr.push ({
         'Country': 'North Europe',
         'Fat_100g': fatof_North,
         'Protein': proteinof_North,
         'Carbohydrate': carbo_North
     });
-    arr.push({
+    arr.push ({
         'Country': 'Central Europe',
         'Fat_100g': fatof_Central,
         'Protein': proteinof_Central,
         'Carbohydrate': carbo_Central
     });
-    arr.push({
+    arr.push ({
         'Country': 'South Europe',
         'Fat_100g': fatof_South,
         'Protein': proteinof_South,
@@ -192,13 +190,10 @@ read1.on('close', function() {
     });
 
     /*output json file is written in to output2.json*/
-    fs1.writeFile('output/fatcarbs.json', JSON.stringify(arr));
-    console.log(arr);
+    fs1.writeFile ('output/fatcarbs.json', JSON.stringify(arr));
+    
 });
 /*exports the data for testing purpose*/
 module.exports = {
     countries, saltContent, sugarContent, countries1, fatContent1, proteinContent1, carboContent1
 };
-
-
-

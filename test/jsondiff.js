@@ -1,48 +1,48 @@
-/*eslint-env node */
-/*file to compare two json objects*/
+/* eslint-env node */
+/* file to compare two json objects */
 module.exports = (function() {
     return {
-        compareJSONStrings: function(expectedJSONStr, actualJSONStr) {
+        compareJSONStrings: function (expectedJSONStr, actualJSONStr) {
             let expectedJSON;
             let actualJSON;
             let compareObjects;
             if (!expectedJSON || !actualJSON) {
                 return;
             }
-            return compareObjects(JSON.parse(expectedJSONStr), JSON.parse(actualJSONStr));
+            return compareObjects (JSON.parse(expectedJSONStr), JSON.parse(actualJSONStr));
         },
-        compareJSONObjects: function(expectedJSON, actualJSON) {
+        compareJSONObjects: function (expectedJSON, actualJSON) {
             if (!expectedJSON || !actualJSON) {
                 return;
             }
 
-            function objValues(obj) {
+            function objValues (obj) {
                 let keys = Object.keys(obj);
                 let values = [];
-                keys.forEach(function(keyName) {
+                keys.forEach(function (keyName) {
                     let val = obj[keyName];
                     values.push(val);
                 });
                 return values;
             }
 
-            function toObjValueHash(obj) {
+            function toObjValueHash (obj) {
                 return objValues(obj).sort().join(';');
             }
 
-            function toDataMap(data) {
+            function toDataMap (data) {
                 return data.map(toObjValueHash);
             }
-            let expectedDataSet = new Set(toDataMap(expectedJSON));
+            let expectedDataSet = new Set (toDataMap(expectedJSON));
             let actualJSONObjs = actualJSON;
             let diffs = [];
             let matched = [];
-            actualJSONObjs.forEach(function(obj) {
-                let actual = toObjValueHash(obj);
-                if (expectedDataSet.has(actual)) {
-                    matched.push(obj);
+            actualJSONObjs.forEach(function (obj) {
+                let actual = toObjValueHash (obj);
+                if (expectedDataSet.has (actual)) {
+                    matched.push (obj);
                 } else {
-                    diffs.push(obj);
+                    diffs.push (obj);
                 }
             });
             if (diffs.length > 0) {
@@ -52,8 +52,8 @@ module.exports = (function() {
                 };
             } else {
                 return {
-                    diffs: diffs.length,
-                    diffObjs: []
+                    diffs : diffs.length,
+                    diffObjs : []
                 };
             }
         }

@@ -1,4 +1,4 @@
-//margin declaration
+// margin declaration
 let margin = {
     top: 20,
     right: 20,
@@ -14,22 +14,22 @@ let y = d3.scale.linear()
     .rangeRound([height, 0]);
 let color = d3.scale.ordinal()
     .range(['#98abc5', '#7b6888', '#8a89a6', '#6b486b', '#a05d56', '#d0743c', '#ff8c00']);
-//declaration of x axis
+// declaration of x axis
 let xAxis = d3.svg.axis()
     .scale(x)
     .orient('bottom');
-//declaration of y axis
+// declaration of y axis
 let yAxis = d3.svg.axis()
     .scale(y)
     .orient('left')
     .tickFormat(d3.format('.2s'));
-//svg is append to the html page
+// svg is append to the html page
 let svg = d3.select("body").append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-//output json is append with d3
+// output json is append with d3
 d3.json('../output/sugarsalt.json', function(error, data) {
     if (error) {
         throw error;
@@ -48,7 +48,7 @@ d3.json('../output/sugarsalt.json', function(error, data) {
         });
         d.total = d.ages[d.ages.length - 1].y1;
     });
-    //data sorted in descending order
+    // data sorted in descending order
     data.sort(function(a, b) {
         return b.total - a.total;
     });

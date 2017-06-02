@@ -1,21 +1,21 @@
-/*eslint-env mocha, node*/
-/*chai module is added */
+/* eslint-env mocha, node */
+/* chai module is added */
 let chai = require('chai');
 let expect = chai.expect;
-/*json output of salt and sugar consumption */
+/* json output of salt and sugar consumption */
 let output = require('../output/sugarsalt.json');
 /* javascript file of salt and sugar consumption, */
 let index = require('../index.js');
-/*json output file of fat, protein, carbohydrate*/
+/* json output file of fat, protein, carbohydrate */
 let output2 = require('../output/fatcarbs.json');
 
 
-/*expected json files */
+/* expected json files */
 let expectedJSON = require('./expectedJSON.json');
 let expectedJSON2 = require('./expectedJSON2.json');
-/*javascript file to compare two json files*/
+/* javascript file to compare two json files*/
 let jsonDiff = require('./jsondiff.js');
-/*test cases for first file, salt sugar consumption vs country */
+/* test cases for first file, salt sugar consumption vs country */
 describe('check the output json1', function() {
     it('the typeof output is correct', function(done) {
         expect(typeof output).to.deep.equal('object');
@@ -43,7 +43,7 @@ describe('check the output json1', function() {
         done();
     });
 });
-/*test cases for second file, fat,protein,carbohydratevs country */
+/* test cases for second file, fat,protein,carbohydratevs country */
 describe('check the output json2', function() {
     it('the typeof output is correct', function(done) {
         expect(typeof output2).to.deep.equal('object');

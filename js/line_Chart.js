@@ -1,4 +1,4 @@
-//margin declaration
+// margin declaration
 let margin = {
     top: 30,
     right: 120,
@@ -10,19 +10,19 @@ let height = 270 - margin.top - margin.bottom;
 let x = d3.scale.ordinal()
     .rangeRoundBands([0, width], 0.2, 0.2);
 let y = d3.scale.linear().range([height, 0]);
-//xAxis declaration
+// xAxis declaration
 let xAxis = d3.svg.axis().scale(x)
     .orient('bottom');
-//yAxis declaration
+// yAxis declaration
 let yAxis = d3.svg.axis().scale(y)
     .orient('left');
-//valueline taken from three datas
+// valueline taken from three datas
 let valueline = d3.svg.line()
     .x(function(d) {
         return x(d.Country);
     })
     .y(function(d) {
-        return y(d.Fat_100g);
+        return y(d.fat);
     });
 
 let valueline2 = d3.svg.line()
@@ -41,7 +41,7 @@ let valueline3 = d3.svg.line()
         return y(d.Carbohydrate);
     });
 
-//svg append with html document
+// svg append with html document
 
 let svg = d3.select('body')
     .append('svg')
@@ -53,7 +53,7 @@ let svg = d3.select('body')
 d3.json('../output/fatcarbs.json', function(error, data) {
     data.forEach(function(d) {
         d.Country = d.Country;
-        d.Fat_100g = +d.Fat_100g;
+        d.fat = +d.fat;
         d.Protein = +d.Protein;
         d.Carbohydrate = +d.Carbohydrate;
     });
@@ -61,9 +61,9 @@ d3.json('../output/fatcarbs.json', function(error, data) {
         return d.Country;
     }));
     y.domain([0, d3.max(data, function(d) {
-        return Math.max(d.Fat_100g, d.Protein, d.Carbohydrate);
+        return Math.max(d.fat, d.Protein, d.Carbohydrate);
     })]);
-    //svg append path for three valuelines
+    // svg append path for three valuelines
     svg.append('path')
         .attr('class', 'line')
         .style('stroke', 'red')
@@ -94,22 +94,22 @@ d3.json('../output/fatcarbs.json', function(error, data) {
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
-    //svg append text for texts
-    //fat_100g
+    // svg append text for texts
+    // fat_100g
     svg.append('text')
-        .attr('transform', 'translate(' + (width + 3) + ',' + y(data[0].Fat_100g) + ')')
+        .attr('transform', 'translate(' + (width + 3) + ',' + y(data[0].fat) + ')')
         .attr('dy', '-5em')
         .attr('text-anchor', 'start')
         .style('fill', 'red')
         .text('Fat_100g');
-    //protein
+    // protein
     svg.append('text')
         .attr('transform', 'translate(' + (width + 3) + ',' + y(data[0].Protein) + ')')
         .attr('dy', '-3em')
         .attr('text-anchor', 'start')
         .style('fill', 'green')
         .text('Protein');
-    //carbohydrate
+    // carbohydrate
     svg.append('text')
         .attr('transform', 'translate(' + (width + 3) + ',' + y(data[0].Carbohydrate) + ')')
         .attr('dy', '-1em')
