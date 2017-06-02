@@ -17,7 +17,7 @@ let fs = require('fs');
 const readline = require('readline');
 let row;
 /*csv file read using interface*/
-let inputStream = fs.createReadStream('../data/FoodFacts.csv');
+let inputStream = fs.createReadStream('data/FoodFacts.csv');
 let read = require('readline').createInterface({
     input: inputStream,
     terminal: false
@@ -116,7 +116,8 @@ read.on('close', function() {
     });
 
     /*output json file is written in to output2.json*/
-    fs.writeFile('../output/fatcarbs.json', JSON.stringify(arr));
+    fs.writeFile('output/fatcarbs.json', JSON.stringify(arr));
+    console.log(arr);
 });
 /*exports the data for testing purpose*/
 module.exports = {

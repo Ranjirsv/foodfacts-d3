@@ -5,11 +5,11 @@ let expect = chai.expect;
 /*json output of salt and sugar consumption */
 let output = require('../output/sugarsalt.json');
 /* javascript file of salt and sugar consumption, */
-let part1 = require('../js/part1.js');
+let part1 = require('../part1.js');
 /*json output file of fat, protein, carbohydrate*/
 let output2 = require('../output/fatcarbs.json');
 /*javascript file of fat, protein, carbohydrate*/
-let part2 = require('../js/part2.js');
+let part2 = require('../part2.js');
 /*expected json files */
 let expectedJSON = require('./expectedJSON.json');
 let expectedJSON2 = require('./expectedJSON2.json');

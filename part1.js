@@ -18,7 +18,7 @@ const readline = require('readline');
 let row;
 let read;
 /*csv file is read using interface*/
-let inputStream = fs.createReadStream('../data/FoodFacts.csv');
+let inputStream = fs.createReadStream('data/FoodFacts.csv');
 console.log("read");
 read = require('readline').createInterface({
     input: inputStream,
@@ -65,7 +65,7 @@ read.on('close', function() {
         });
     }
     /*output json is written in output.json file */
-    fs.writeFile('../output/sugarsalt.json', JSON.stringify(part1));
+    fs.writeFile('output/sugarsalt.json', JSON.stringify(part1));
 console.log(part1);
 });
 
