@@ -43,7 +43,7 @@ d3.json('../output/sugarsalt.json', function(error, data) {
             return {
                 name: name,
                 y0: y0,
-                y1: y0 +=d[name]
+                y1: y0 += d[name]
             };
         });
         d.total = d.ages[d.ages.length - 1].y1;

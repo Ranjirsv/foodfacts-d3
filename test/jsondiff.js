@@ -51,7 +51,7 @@ module.exports = (function() {
                     diffObjs: diffs
                 };
             }
-            return { diffs : diffs.length,diffObjs : [] };
+            return { diffs : diffs.length,diffObjs : []};
         }
     };
 })();
